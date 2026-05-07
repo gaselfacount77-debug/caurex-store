@@ -167,59 +167,48 @@ html, body {
 
 /* ================= KHUSUS TAMPILAN HP ================= */
 @media (max-width: 600px) {
-    /* 1. Paksa kontainer jadi tumpuk ke bawah */
+    /* 1. Gabungin pengaturannya di sini biar gak bentrok */
     .first, .spider {
-        display: flex;
-        flex-direction: column; /* Ini yang bikin teks & tombol pindah ke bawah gambar */
-        align-items: center;    /* Biar semua konten di tengah */
-        justify-content: flex-start;
-        height: auto;           /* Biar tinggi box ngikutin isi konten */
+        display: flex !important;
+        flex-direction: column !important; /* Paksa tumpuk ke bawah */
+        align-items: center;    
+        height: auto !important; /* Biar gak kepotong */
         width: 100%;            
         padding: 30px 20px;     
-        gap: 20px;              /* Jarak antara gambar dan teks */
+        gap: 20px;              
         margin: 0;
-        box-sizing: border-box; /* Anti scroll kanan-kiri */
+        box-sizing: border-box;
     }
 
-    /* 2. Gambar di atas */
+    /* 2. Atur Gambar */
     .first img, .spider img {
-        order: 1;               /* Pastikan gambar urutan pertama */
         width: 100%;
         max-width: 320px;       
         height: auto;           
-        margin-bottom: 10px;    
+        margin-bottom: 15px;    
     }
 
-    /* 3. Teks & Tombol di bawah gambar */
+    /* 3. Atur Teks & Tombol */
     .text-area, .text-spider {
-        order: 2;               /* Pastikan teks urutan kedua (di bawah gambar) */
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;    /* Teks rata tengah */
+        align-items: center;    
         text-align: center;
-        flex: none;             /* Matikan flex bawaan desktop */
+        flex: none;
     }
 
-    .text-area h1, .text-spider h1 {
-        font-size: 28px;
-        margin-bottom: 5px;
-    }
-
-    .text-area p, .text-spider p {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    /* 4. Tombol paling bawah */
+    /* 4. Tombol Shopping */
     .buttons {
         width: 100%;
         align-items: center;
+        margin-top: 15px;
     }
 
     .buttons a {
-        width: 220px;           /* Lebar tombol pas buat jempol */
+        width: 220px;           
         padding: 12px;
+        display: inline-block;
     }
 }
 
