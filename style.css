@@ -1,69 +1,62 @@
-/* ================= RESET ================= */
-body {
+/* ================= 1. RESET & DASAR ================= */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff9f4;
+    padding: 0;
+    box-sizing: border-box; /* Kunci biar gak scroll kanan-kiri */
 }
 
+html, body {
+    overflow-x: hidden; /* Satpam biar gak bocor ke samping */
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: #fff9f4;
+    scroll-behavior: smooth;
+}
 
-/* ================= NAVBAR ================= */
+/* ================= 2. NAVBAR ================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
-    background: rgba(255, 255, 255, 0.7);
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
+    z-index: 1000;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-
-/* ================= LOGO ================= */
 .logo {
-    font-size: 26px;
-    letter-spacing: 6px;
-    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-.logo:hover {
-    letter-spacing: 8px;
-}
+.logo:hover { letter-spacing: 6px; }
 
-
-/* ================= ICONS ================= */
-.icons a,
-.icons span {
+.icons a, .icons span {
     margin-left: 15px;
     font-size: 18px;
-    padding: 6px;
+    padding: 8px;
     border-radius: 50%;
     transition: 0.3s;
-}
-
-.icons a {
-    text-decoration: none;
     color: black;
-}
-
-.icons span {
+    text-decoration: none;
     cursor: pointer;
 }
 
-.icons a:hover,
-.icons span:hover {
+.icons a:hover, .icons span:hover {
     background: black;
     color: white;
 }
 
-
-/* ================= OPENING (LOGO IMAGE) ================= */
+/* ================= 3. HERO / OPENING ================= */
 .opening {
     display: flex;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .opening img {
@@ -72,310 +65,135 @@ body {
     transition: 0.4s;
 }
 
-.opening img:hover {
-    transform: scale(1.05);
-}
-
-
-/* ================= TEXT ================= */
 .perkenalan {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
     animation: fadeUp 1s ease;
 }
 
-.perkenalan h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
+.perkenalan h1 { font-size: 32px; margin-bottom: 15px; }
+.perkenalan p { max-width: 600px; margin: auto; line-height: 1.7; color: #444; }
 
-.perkenalan p {
-    max-width: 500px;
-    margin: auto;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #444;
-}
-
-
-/* ================= BUTTON ================= */
 .btn {
     margin-top: 25px;
-    padding: 12px 30px;
+    padding: 12px 35px;
     border: none;
     background: black;
     color: white;
     border-radius: 30px;
+    font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-
-/* ================= FOUNDER ================= */
+/* ================= 4. FOUNDER ================= */
 .founder {
-    margin-top: 30px;
+    margin: 40px 0;
     text-align: center;
 }
 
 .founder img {
-    width: 100%;
+    width: 90%;
     max-width: 350px;
     height: auto;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    border: 3px solid black;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.founder h3 {
-    margin: 5px 0;
-    font-size: 16px;
-}
-
-.founder span {
-    font-size: 13px;
-    color: #777;
-}
-
-
-/* ================= CART ================= */
-    .first {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 0px;
-    background: #444;
-    height: 800px;
-    width: 96%;
-    padding: 36px;
-    gap: 40px;
-    margin: 0px;
-}
-
-.first img {
-    display: block;
-    max-width: 800px;
-    height: 800px;
     border-radius: 20px;
+    border: 3px solid black;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.first img:active {
-    transform: scale(0.95); /* efek ditekan */
+/* ================= 5. PRODUCT SECTION (CART & SPIDER) ================= */
+.first, .spider {
+    display: flex;
+    flex-direction: row; /* Desktop: Sampingan */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 700px;
+    padding: 60px 5%;
+    gap: 50px;
 }
 
-.first img:hover {
-    transform: scale(1.05); /* sedikit membesar */
+.first { background: #444; }
+.spider { background: #000; }
+
+.first img, .spider img {
+    width: 100%;
+    max-width: 500px; /* Ukuran gambar di desktop */
+    height: auto;
+    border-radius: 25px;
+    transition: 0.3s ease;
 }
 
-.text-area {
+.first img:hover, .spider img:hover { transform: scale(1.03); }
+
+/* Area Teks Produk */
+.text-area, .text-spider {
     flex: 1;
     display: flex;
-    flex-direction: column; /* ini kunci biar ke bawah */
-    align-items: center;
-}
-
-.text-area p {
-    margin-top: 10px;
-    color: #ddd;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.text-area h1 {
-    font-size: 40px;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/*button shoping*/
-.buttons {
     flex-direction: column;
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+    align-items: flex-start; /* Desktop: Rata kiri */
+    color: white;
 }
+
+.text-area h1, .text-spider h1 { font-size: 42px; margin-bottom: 15px; }
+.text-area p, .text-spider p { color: #ccc; margin-bottom: 25px; font-size: 16px; }
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 220px;
+}
+
+.buttons p { font-size: 18px; margin-bottom: 5px; color: #fff; text-align: center; }
 
 .buttons a {
     text-align: center;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 12px;
     border-radius: 25px;
     color: white;
-    font-size: 14px;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-/* Shopee */
-.shopee {
-    background: #ff6a00;
-}
+.shopee { background: #ff6a00; }
+.tokopedia { background: #03ac0e; }
+.buttons a:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
-.shopee:hover {
-    background: #e65c00;
-}
-
-/* Tokopedia */
-.tokopedia {
-    background: #03ac0e;
-}
-
-.tokopedia:hover {
-    background: #028a0c;
-}
-
-.buttons a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.buttons p {
-    margin: 0;
-    color: #ccc;
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* ================= SPIDER ================= */
-
-.spider {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 0px;
-    background: #000000;
-    height: 800px;
-    width: 96%;
-    padding: 36px;
-    gap: 40px;
-    margin: 0px;
-}
-
-.spider img {
-    display: block;
-    max-width: 800px;
-    height: 800px;
-    border-radius: 20px;
-}
-
-.spider img:active {
-    transform: scale(0.95); /* efek ditekan */
-}
-
-.spider img:hover {
-    transform: scale(1.05); /* sedikit membesar */
-}
-
-.text-spider {
-    flex: 1;
-    display: flex;
-    flex-direction: column; /* ini kunci biar ke bawah */
-    align-items: center;
-}
-
-.text-spider p {
-    margin-top: 10px;
-    color: #ddd;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.text-spider h1 {
-    font-size: 40px;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* ================= Cart Hp ================= */
-@media (max-width: 600px) {
-    .first {
-    display: flex;
-    margin-top: 0px;
-    background: #444;
-    height: auto;
-    width: 100%;
-    padding: 36px;
-    gap: 5px;
-    margin: 0px;
-    flex-direction: column;;
-    box-sizing: border-box;
-}
-
-    .first img {
-        display: block;
+/* ================= 6. RESPONSIVE (MOBILE) ================= */
+@media (max-width: 768px) {
+    .first, .spider {
+        flex-direction: column; /* Teks turun ke bawah gambar */
         height: auto;
-        margin-left: auto;
-        width: 100%;
-        border-radius: 20px;
+        padding: 50px 20px;
+        gap: 30px;
     }
 
-    .buttons {
-        align-items: center;
-        flex-direction: column;
-        width: 100%;
+    .first img, .spider img {
+        max-width: 100%; /* Gambar full lebar HP */
     }
 
-    .buttons a {
-        width: 100%;
+    .text-area, .text-spider {
+        align-items: center; /* Teks jadi rata tengah di HP */
         text-align: center;
     }
 
-    .buttons p {
-        font-weight: bold;
-        color: rgb(255, 255, 255);
-        font-size: 20px;
+    .text-area h1, .text-spider h1 {
+        font-size: 30px;
     }
 
-    /*spider hp*/
-    .spider {
-    display: flex;
-    margin-top: 0px;
-    background: #000000;
-    height: auto;
-    width: 100%;
-    padding: 36px;
-    gap: 5px;
-    margin: 0px;
-    flex-direction: column;
-    box-sizing: border-box;
-    }
-
-    .spider img {
-    display: block;
-    height: auto;
-    width: 100%;
-    border-radius: 20px;
+    .buttons {
+        max-width: 100%; /* Tombol menyesuaikan lebar HP */
     }
 }
 
-/* ================= ANIMATION ================= */
+/* ================= 7. ANIMATION ================= */
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 600px) {
-    .founder img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10%;
-        margin-bottom: 10px;
-        border: 3px solid black;
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
