@@ -165,30 +165,61 @@ html, body {
 .tokopedia { background: #03ac0e; }
 .buttons a:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
-/* ================= 6. RESPONSIVE (MOBILE) ================= */
-@media (max-width: 768px) {
+/* ================= KHUSUS TAMPILAN HP ================= */
+@media (max-width: 600px) {
+    /* 1. Paksa kontainer jadi tumpuk ke bawah */
     .first, .spider {
-        flex-direction: column; /* Teks turun ke bawah gambar */
-        height: auto;
-        padding: 50px 20px;
-        gap: 30px;
+        display: flex;
+        flex-direction: column; /* Ini yang bikin teks & tombol pindah ke bawah gambar */
+        align-items: center;    /* Biar semua konten di tengah */
+        justify-content: flex-start;
+        height: auto;           /* Biar tinggi box ngikutin isi konten */
+        width: 100%;            
+        padding: 30px 20px;     
+        gap: 20px;              /* Jarak antara gambar dan teks */
+        margin: 0;
+        box-sizing: border-box; /* Anti scroll kanan-kiri */
     }
 
+    /* 2. Gambar di atas */
     .first img, .spider img {
-        max-width: 100%; /* Gambar full lebar HP */
+        order: 1;               /* Pastikan gambar urutan pertama */
+        width: 100%;
+        max-width: 320px;       
+        height: auto;           
+        margin-bottom: 10px;    
     }
 
+    /* 3. Teks & Tombol di bawah gambar */
     .text-area, .text-spider {
-        align-items: center; /* Teks jadi rata tengah di HP */
+        order: 2;               /* Pastikan teks urutan kedua (di bawah gambar) */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;    /* Teks rata tengah */
         text-align: center;
+        flex: none;             /* Matikan flex bawaan desktop */
     }
 
     .text-area h1, .text-spider h1 {
-        font-size: 30px;
+        font-size: 28px;
+        margin-bottom: 5px;
     }
 
+    .text-area p, .text-spider p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* 4. Tombol paling bawah */
     .buttons {
-        max-width: 100%; /* Tombol menyesuaikan lebar HP */
+        width: 100%;
+        align-items: center;
+    }
+
+    .buttons a {
+        width: 220px;           /* Lebar tombol pas buat jempol */
+        padding: 12px;
     }
 }
 
